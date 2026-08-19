@@ -462,49 +462,81 @@ button{ font:inherit; color:inherit; background:none; border:0; cursor:pointer; 
   display:flex;
   flex-direction:column;
   align-items:center;
-  gap:var(--space-4);
+  gap:var(--space-5);
   z-index:2;
 }
-.roast-frames{
-  position:relative;
-  width:min(280px, 62vw);
-  aspect-ratio:1/1;
-}
-.roast-frame{
-  position:absolute; inset:0;
-  display:flex; align-items:center; justify-content:center;
-  opacity:0;
-  transform:scale(.94);
-  transition:opacity .35s var(--ease-out), transform .35s var(--ease-out);
-}
-.roast-frame.is-active{ opacity:1; transform:scale(1); }
-.roast-frame svg{ width:100%; height:100%; }
 
-.roast-meter{
-  width:min(320px, 80vw);
-  text-align:center;
-}
-.roast-meter-track{
-  height:6px;
-  border-radius:var(--radius-pill);
-  background:rgba(255,255,255,.14);
+/* The visual stage: one persistent SVG whose bean fill, crease, and hand
+   scale are tweened continuously by a GSAP timeline (not swapped between
+   discrete frames), plus a steam group and a package group that cross
+   into a real product photo at the final beat — see diestro-home.js. */
+.roast-visual{
+  position:relative;
+  width:min(420px, 78vw);
+  aspect-ratio:1/1;
+  background:var(--color-navy-surface);
+  border-radius:var(--radius-lg);
   overflow:hidden;
 }
-.roast-meter-fill{
-  /* A roast-progress ramp, not the brand accent — matches the bean SVG
-     frame colors (green bean → tan → dark roast) rather than reusing
-     --color-gold-accent, keeping the one true accent's rarity intact. */
-  height:100%;
-  width:0%;
-  border-radius:inherit;
-  background:linear-gradient(90deg, var(--color-line-green), #c9a15c, #3b2013);
-  transition:width .1s linear;
+.roast-visual::before{
+  /* Ambient heat glow — intensifies through the middle of the timeline,
+     driven by the .is-hot class the timeline toggles. */
+  content:"";
+  position:absolute; inset:0;
+  background:radial-gradient(circle at 55% 68%, color-mix(in srgb, var(--color-gold-accent) 35%, transparent) 0%, transparent 62%);
+  opacity:0;
+  transition:opacity 1.2s var(--ease-out);
+  pointer-events:none;
 }
+.roast-visual.is-hot::before{ opacity:.8; }
+.roast-visual svg{
+  position:absolute; inset:0;
+  width:100%; height:100%;
+  padding:var(--space-8);
+}
+.roast-photo{
+  position:absolute; inset:0;
+  display:flex; align-items:center; justify-content:center;
+  padding:var(--space-6);
+  opacity:0;
+  pointer-events:none;
+}
+.roast-photo img{
+  width:60%;
+  filter:drop-shadow(0 24px 40px rgba(0,0,0,.5));
+}
+
+/* Vertical numbered rail — the editorial "serial number" progress marker,
+   sourced from the same numbered-step logic the proposal itself uses. */
+.roast-rail{
+  position:absolute;
+  top:var(--space-5); inset-inline-start:var(--space-5);
+  z-index:4;
+  display:flex; flex-direction:column;
+  gap:var(--space-4);
+}
+.roast-rail span{
+  font-family:var(--font-accent);
+  font-size:14px;
+  font-weight:600;
+  color:var(--color-cream-soft);
+  opacity:.5;
+  transition:color .3s, opacity .3s, transform .3s, font-size .3s;
+}
+.roast-rail span.is-active{
+  color:var(--color-gold-accent);
+  opacity:1;
+  font-size:21px;
+  transform:translateX(var(--rail-active-shift, 6px));
+}
+
 .roast-caption{
   position:relative;
   min-height:8.5em;
+  width:min(340px, 80vw);
   max-width:34ch;
   margin-inline:auto;
+  flex:none;
 }
 .roast-caption-item{
   position:absolute;
@@ -512,7 +544,7 @@ button{ font:inherit; color:inherit; background:none; border:0; cursor:pointer; 
   top:0;
   opacity:0;
   transform:translateY(10px);
-  transition:opacity .5s var(--ease-out), transform .5s var(--ease-out);
+  transition:opacity .28s var(--ease-out), transform .28s var(--ease-out);
   pointer-events:none;
 }
 .roast-caption-item.is-active{
@@ -537,25 +569,13 @@ button{ font:inherit; color:inherit; background:none; border:0; cursor:pointer; 
   color:var(--color-cream-soft);
   font-size:16px;
 }
-.roast-progress{
-  display:flex;
-  gap:var(--space-2);
-  z-index:2;
-}
-.roast-progress span{
-  width:26px; height:3px; border-radius:var(--radius-pill);
-  background:rgba(255,255,255,.2);
-  transition:background .3s;
-}
-/* The active step is the one genuinely single-highlight moment in a real
-   sequence — the same restraint the source deck applies to its "01" cards. */
-.roast-progress span.is-active{ background:var(--color-gold-accent); }
 
 @media (min-width:960px){
   .roast-pin{ padding-block:0; }
-  .roast-stage{ flex-direction:row; justify-content:center; gap:var(--space-7); text-align:start; }
-  .roast-frames{ width:340px; }
+  .roast-stage{ flex-direction:row; justify-content:center; gap:var(--space-8); text-align:start; }
+  .roast-visual{ width:480px; }
   .roast-caption{ text-align:start; }
+  :root{ --rail-active-shift: 8px; }
 }
 
 /* ==========================================================================

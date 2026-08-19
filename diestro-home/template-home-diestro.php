@@ -209,109 +209,49 @@ $diestro_roast_steps = array(
         </div>
 
         <div class="roast-stage">
-          <div class="roast-frames">
-
-            <!-- Frame 1: green bean -->
-            <div class="roast-frame is-active">
-              <svg viewBox="0 0 200 200" fill="none" stroke="#EFE7D4" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M40 150 C 30 120, 32 95, 48 80 C 52 76, 58 76, 60 82 L 62 108"/>
-                <path d="M62 108 L 60 74 C 60 68, 68 66, 71 72 L 76 108"/>
-                <path d="M76 108 L 78 68 C 78 62, 87 61, 89 68 L 92 108"/>
-                <path d="M92 108 L 96 74 C 97 68, 105 68, 106 75 L 108 112"/>
-                <path d="M108 112 C 120 106, 132 112, 136 126 C 142 146, 132 168, 108 172 L 62 172 C 46 172, 40 162, 40 150 Z"/>
-                <ellipse cx="86" cy="140" rx="26" ry="18" fill="#0D6944" stroke="#EFE7D4" stroke-width="4" transform="rotate(-18 86 140)"/>
-                <path d="M70 132 C 80 138, 92 140, 100 148" stroke="#0a4a30" stroke-width="3" fill="none"/>
-              </svg>
+          <div class="roast-visual" id="roast-visual">
+            <div class="roast-rail" aria-hidden="true">
+			  <?php $diestro_rail_numerals = array( '۰۱', '۰۲', '۰۳', '۰۴', '۰۵' ); ?>
+			  <?php foreach ( $diestro_rail_numerals as $i => $numeral ) : ?>
+              <span class="<?php echo 0 === $i ? 'is-active' : ''; ?>"><?php echo esc_html( $numeral ); ?></span>
+			  <?php endforeach; ?>
             </div>
 
-            <!-- Frame 2: roast begins -->
-            <div class="roast-frame">
-              <svg viewBox="0 0 200 200" fill="none" stroke="#EFE7D4" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+            <svg viewBox="0 0 200 200" fill="none" stroke="#EFE7D4" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+              <g id="roast-steam" opacity="0">
+                <path d="M55 90 q6 -14 -2 -24" stroke-width="2.5"/>
+                <path d="M72 86 q6 -14 -2 -24" stroke-width="2.5"/>
+                <path d="M89 90 q6 -14 -2 -24" stroke-width="2.5"/>
+              </g>
+              <g id="roast-hand">
                 <path d="M40 150 C 30 120, 32 95, 48 80 C 52 76, 58 76, 60 82 L 62 108"/>
                 <path d="M62 108 L 60 74 C 60 68, 68 66, 71 72 L 76 108"/>
                 <path d="M76 108 L 78 68 C 78 62, 87 61, 89 68 L 92 108"/>
                 <path d="M92 108 L 96 74 C 97 68, 105 68, 106 75 L 108 112"/>
                 <path d="M108 112 C 120 106, 132 112, 136 126 C 142 146, 132 168, 108 172 L 62 172 C 46 172, 40 162, 40 150 Z"/>
-                <ellipse cx="86" cy="140" rx="26" ry="18" fill="#D9A53E" stroke="#EFE7D4" stroke-width="4" transform="rotate(-18 86 140)"/>
-                <path d="M70 132 C 80 138, 92 140, 100 148" stroke="#8a6a1f" stroke-width="3" fill="none"/>
-                <path d="M58 96 q4 -10 -2 -18" stroke="#EFE7D4" stroke-width="2.5" opacity=".6"/>
-                <path d="M72 92 q4 -10 -2 -18" stroke="#EFE7D4" stroke-width="2.5" opacity=".6"/>
-              </svg>
-            </div>
-
-            <!-- Frame 3: mid roast / first crack -->
-            <div class="roast-frame">
-              <svg viewBox="0 0 200 200" fill="none" stroke="#EFE7D4" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M40 150 C 30 120, 32 95, 48 80 C 52 76, 58 76, 60 82 L 62 108"/>
-                <path d="M62 108 L 60 74 C 60 68, 68 66, 71 72 L 76 108"/>
-                <path d="M76 108 L 78 68 C 78 62, 87 61, 89 68 L 92 108"/>
-                <path d="M92 108 L 96 74 C 97 68, 105 68, 106 75 L 108 112"/>
-                <path d="M108 112 C 120 106, 132 112, 136 126 C 142 146, 132 168, 108 172 L 62 172 C 46 172, 40 162, 40 150 Z"/>
-                <ellipse cx="86" cy="140" rx="26" ry="18" fill="#B9793B" stroke="#EFE7D4" stroke-width="4" transform="rotate(-18 86 140)"/>
-                <path d="M70 132 C 80 138, 92 140, 100 148" stroke="#5c3714" stroke-width="3" fill="none"/>
-                <path d="M55 90 q6 -14 -2 -24" stroke="#EFE7D4" stroke-width="2.5" opacity=".7"/>
-                <path d="M72 86 q6 -14 -2 -24" stroke="#EFE7D4" stroke-width="2.5" opacity=".7"/>
-                <path d="M89 90 q6 -14 -2 -24" stroke="#EFE7D4" stroke-width="2.5" opacity=".7"/>
-              </svg>
-            </div>
-
-            <!-- Frame 4: full dark roast -->
-            <div class="roast-frame">
-              <svg viewBox="0 0 200 200" fill="none" stroke="#EFE7D4" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M40 150 C 30 120, 32 95, 48 80 C 52 76, 58 76, 60 82 L 62 108"/>
-                <path d="M62 108 L 60 74 C 60 68, 68 66, 71 72 L 76 108"/>
-                <path d="M76 108 L 78 68 C 78 62, 87 61, 89 68 L 92 108"/>
-                <path d="M92 108 L 96 74 C 97 68, 105 68, 106 75 L 108 112"/>
-                <path d="M108 112 C 120 106, 132 112, 136 126 C 142 146, 132 168, 108 172 L 62 172 C 46 172, 40 162, 40 150 Z"/>
-                <ellipse cx="86" cy="140" rx="26" ry="18" fill="#3B2013" stroke="#EFE7D4" stroke-width="4" transform="rotate(-18 86 140)"/>
-                <ellipse cx="78" cy="132" rx="4" ry="2" fill="#c99b5f" stroke="none" opacity=".7" transform="rotate(-18 78 132)"/>
-                <path d="M50 86 q8 -18 -2 -30" stroke="#EFE7D4" stroke-width="2.5" opacity=".8"/>
-                <path d="M70 80 q8 -18 -2 -30" stroke="#EFE7D4" stroke-width="2.5" opacity=".8"/>
-                <path d="M90 84 q8 -18 -2 -30" stroke="#EFE7D4" stroke-width="2.5" opacity=".8"/>
-              </svg>
-            </div>
-
-            <!-- Frame 5: packaged, ready -->
-            <div class="roast-frame">
-              <svg viewBox="0 0 200 200" fill="none" stroke="#EFE7D4" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M40 150 C 30 120, 32 95, 48 80 C 52 76, 58 76, 60 82 L 62 108"/>
-                <path d="M62 108 L 60 74 C 60 68, 68 66, 71 72 L 76 108"/>
-                <path d="M76 108 L 78 68 C 78 62, 87 61, 89 68 L 92 108"/>
-                <path d="M92 108 L 96 74 C 97 68, 105 68, 106 75 L 108 112"/>
-                <path d="M108 112 C 120 106, 132 112, 136 126 C 142 146, 132 168, 108 172 L 62 172 C 46 172, 40 162, 40 150 Z"/>
+              </g>
+              <ellipse id="roast-bean" cx="86" cy="140" rx="26" ry="18" fill="#0D6944" stroke="#EFE7D4" stroke-width="4" transform="rotate(-18 86 140)"/>
+              <path id="roast-crease" d="M70 132 C 80 138, 92 140, 100 148" stroke="#0a4a30" stroke-width="3" fill="none"/>
+              <g id="roast-pkg" opacity="0">
                 <path d="M70 156 L70 108 Q70 96 82 96 L98 96 Q110 96 110 108 L110 156 Q110 168 98 168 L82 168 Q70 168 70 156 Z" fill="#0f2b4d" stroke="#EFE7D4" stroke-width="3.5"/>
                 <circle cx="90" cy="128" r="9" fill="none" stroke="#EFE7D4" stroke-width="2.5"/>
                 <path d="M85 128 q2 -5 5 -5 q3 0 3 3 q0 4 -5 7" stroke="#EFE7D4" stroke-width="2" fill="none"/>
-              </svg>
-            </div>
+              </g>
+            </svg>
 
+            <div class="roast-photo" id="roast-photo">
+              <img src="<?php echo esc_url( $diestro_asset_uri . '/img/hero/bizarro-hero-cutout.webp' ); ?>" alt="بسته قهوه دیسترو، محصول بیزارو" loading="lazy">
+            </div>
           </div>
 
-          <div class="roast-meter">
-            <div class="roast-caption">
+          <div class="roast-caption">
 			  <?php foreach ( $diestro_roast_steps as $i => $step ) : ?>
-              <div class="roast-caption-item<?php echo 0 === $i ? ' is-active' : ''; ?>" data-step="<?php echo esc_attr( $i ); ?>">
-                <span class="step-no"><?php echo esc_html( $step['no'] ); ?></span>
-                <h3><?php echo esc_html( $step['title'] ); ?></h3>
-                <p><?php echo esc_html( $step['text'] ); ?></p>
-              </div>
+            <div class="roast-caption-item<?php echo 0 === $i ? ' is-active' : ''; ?>" data-step="<?php echo esc_attr( $i ); ?>">
+              <span class="step-no"><?php echo esc_html( $step['no'] ); ?></span>
+              <h3><?php echo esc_html( $step['title'] ); ?></h3>
+              <p><?php echo esc_html( $step['text'] ); ?></p>
+            </div>
 			  <?php endforeach; ?>
-            </div>
-
-            <div class="roast-meter-track">
-              <div class="roast-meter-fill"
-				<?php foreach ( $diestro_roast_steps as $i => $step ) : ?>
-                   data-step<?php echo esc_attr( $i ); ?>="<?php echo esc_attr( $step['meter'] ); ?>"
-				<?php endforeach; ?>
-			  ></div>
-            </div>
-            <p class="roast-meter-label" style="margin-top:.6rem;font-size:.78rem;color:rgba(250,247,240,.6)"><?php echo esc_html( $diestro_roast_steps[0]['meter'] ); ?></p>
-
-            <div class="roast-progress" aria-hidden="true">
-			  <?php foreach ( $diestro_roast_steps as $i => $step ) : ?>
-              <span class="<?php echo 0 === $i ? 'is-active' : ''; ?>"></span>
-			  <?php endforeach; ?>
-            </div>
           </div>
         </div>
       </div>
