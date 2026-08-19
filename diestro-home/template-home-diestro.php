@@ -24,7 +24,7 @@ $diestro_featured_products = array(
 		'slug'        => 'alto',
 		'name'        => 'Alto',
 		'accent'      => 'green',
-		'accent_var'  => '--accent-green',
+		'accent_var'  => '--color-line-green',
 		'roast'       => 'برشت متوسط',
 		'blend'       => '۱۰۰٪ عربیکا',
 		'flavor_note' => 'گلی – میوه‌ای',
@@ -37,7 +37,7 @@ $diestro_featured_products = array(
 		'slug'        => 'sereno',
 		'name'        => 'Sereno',
 		'accent'      => 'tan',
-		'accent_var'  => '--accent-tan',
+		'accent_var'  => '--color-line-tan',
 		'roast'       => 'برشت متوسط',
 		'blend'       => 'قهوه ترک',
 		'flavor_note' => 'آجیلی – کاکائویی',
@@ -50,7 +50,7 @@ $diestro_featured_products = array(
 		'slug'        => 'bizarro',
 		'name'        => 'Bizarro',
 		'accent'      => 'blue',
-		'accent_var'  => '--accent-blue',
+		'accent_var'  => '--color-line-blue',
 		'roast'       => 'برشت متوسط–تیره',
 		'blend'       => '۴۰٪ عربیکا – ۶۰٪ روبوستا',
 		'flavor_note' => 'گل',
@@ -63,7 +63,7 @@ $diestro_featured_products = array(
 		'slug'        => 'ciento',
 		'name'        => 'Ciento',
 		'accent'      => 'terracotta',
-		'accent_var'  => '--accent-terracotta',
+		'accent_var'  => '--color-line-terracotta',
 		'roast'       => 'برشت متوسط–تیره',
 		'blend'       => '۱۰۰٪ عربیکا',
 		'flavor_note' => 'میوه‌ای – کاراملی',
@@ -156,7 +156,7 @@ $diestro_roast_steps = array(
   </div>
 </header>
 
-<nav class="mobile-nav" aria-label="ناوبری موبایل">
+<nav class="mobile-nav on-dark" aria-label="ناوبری موبایل">
   <ul>
     <li><a href="#products">محصولات دیسترو</a></li>
     <li><a href="#roast-story">داستان برشته‌کاری</a></li>
@@ -170,7 +170,7 @@ $diestro_roast_steps = array(
 <main id="top">
 
   <!-- ==================== HERO ==================== -->
-  <section class="hero">
+  <section class="hero on-dark">
     <div class="hero-bean b1" aria-hidden="true"><svg viewBox="0 0 40 26" fill="none" stroke="#EFE7D4" stroke-width="2"><ellipse cx="20" cy="13" rx="18" ry="11" transform="rotate(-18 20 13)"/><path d="M9 15c5 3 12 3 20-3" /></svg></div>
     <div class="hero-bean b2" aria-hidden="true"><svg viewBox="0 0 40 26" fill="none" stroke="#EFE7D4" stroke-width="2"><ellipse cx="20" cy="13" rx="18" ry="11" transform="rotate(12 20 13)"/><path d="M9 11c5 -3 12 -3 20 3" /></svg></div>
     <div class="hero-bean b3" aria-hidden="true"><svg viewBox="0 0 40 26" fill="none" stroke="#EFE7D4" stroke-width="2"><ellipse cx="20" cy="13" rx="18" ry="11" transform="rotate(-30 20 13)"/><path d="M9 16c5 2 12 1 20 -5" /></svg></div>
@@ -200,7 +200,7 @@ $diestro_roast_steps = array(
   </section>
 
   <!-- ==================== ROASTING STORY ==================== -->
-  <section class="roast-story" id="roast-story">
+  <section class="roast-story on-dark" id="roast-story">
     <div class="roast-pin">
       <div class="container">
         <div class="roast-head">
@@ -319,7 +319,7 @@ $diestro_roast_steps = array(
   </section>
 
   <!-- ==================== FEATURED PRODUCTS ==================== -->
-  <section class="products" id="products">
+  <section class="products on-light" id="products">
     <div class="container">
       <div class="section-head" data-reveal>
         <span class="eyebrow">Featured</span>
@@ -355,13 +355,13 @@ $diestro_roast_steps = array(
       </div>
 
       <div class="products-footer" data-reveal>
-        <a href="<?php echo esc_url( function_exists( 'wc_get_page_permalink' ) ? wc_get_page_permalink( 'shop' ) : '#' ); ?>" class="btn btn-outline-dark">مشاهده همه محصولات</a>
+        <a href="<?php echo esc_url( function_exists( 'wc_get_page_permalink' ) ? wc_get_page_permalink( 'shop' ) : '#' ); ?>" class="btn btn-ghost">مشاهده همه محصولات</a>
       </div>
     </div>
   </section>
 
   <!-- ==================== BRAND STORY ==================== -->
-  <section class="brand-story" id="brand-story">
+  <section class="brand-story on-light" id="brand-story">
     <div class="container">
       <div class="brand-story-media" data-reveal>
         <img src="<?php echo esc_url( $diestro_asset_uri . '/img/hero/beans-macro.webp' ); ?>" alt="دانه‌های قهوه برشته‌شده دیسترو" width="790" height="1017" loading="lazy">
@@ -385,7 +385,7 @@ $diestro_roast_steps = array(
   </section>
 
   <!-- ==================== DISCOVERY TEASER ==================== -->
-  <section class="discovery" id="discovery">
+  <section class="discovery on-dark" id="discovery">
     <div class="container">
       <div class="discovery-head" data-reveal>
         <span class="eyebrow">Coming Soon</span>
@@ -415,14 +415,14 @@ $diestro_roast_steps = array(
 </main>
 
 <!-- ==================== FOOTER ==================== -->
-<footer class="site-footer" id="footer">
+<footer class="site-footer on-dark" id="footer">
   <div class="container">
     <div class="footer-top">
       <div class="footer-brand">
         <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="brand">
           <img src="<?php echo esc_url( $diestro_asset_uri . '/img/logo/diestro-logo.png' ); ?>" alt="نماد دیسترو کافی" width="52" height="52" loading="lazy">
           <span class="brand-word">
-            <strong style="color:var(--cream-50)"><?php bloginfo( 'name' ); ?></strong>
+            <strong style="color:var(--color-white)"><?php bloginfo( 'name' ); ?></strong>
             <span>با دستان ماهر</span>
           </span>
         </a>
